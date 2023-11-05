@@ -1,8 +1,8 @@
 import { getTodos } from '@/apis/todos';
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 
 const useGetTodos = () => {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: ['getTodos'],
     queryFn: getTodos,
   });
