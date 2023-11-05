@@ -21,6 +21,7 @@ const Button: FC<Props> = ({
       className={twMerge(
         'rounded-[8px] text-white py-1 px-3 hover:opacity-70 h-8 break-keep relative',
         ButtonClassMap[variant],
+        isLoading && 'hover:opacity-100',
         disabled && 'bg-gray-400 hover:opacity-100'
       )}
       {...props}
