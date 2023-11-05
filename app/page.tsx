@@ -1,5 +1,11 @@
+import TodoForm from '@/components/home/TodoForm';
+
 const Home = () => {
-  return <div></div>;
+  return (
+    <div className='max-w-[400px]'>
+      <TodoForm />
+    </div>
+  );
 };
 
 export default Home;
