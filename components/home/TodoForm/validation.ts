@@ -1,8 +1,8 @@
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-  checked: yup.boolean().required(),
-  text: yup.string().required(),
+  completed: yup.boolean().required(),
+  todo: yup.string().required(),
 });
 
 export default schema;
