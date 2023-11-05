@@ -1,14 +1,9 @@
 import instance from '..';
-import {
-  AddTodoRequest,
-  GetTodosRequest,
-  GetTodosResponse,
-  UpdateTodoRequest,
-} from './type';
+import { AddTodoRequest, GetTodosResponse, UpdateTodoRequest } from './type';
 
 export const addTodo = (data: AddTodoRequest) => instance.post('', data);
 
-export const getTodos = (params: GetTodosRequest) =>
+export const getTodos = () =>
   instance.get<GetTodosResponse>('', {
     params: { _sort: 'id', _order: 'DESC' },
   });

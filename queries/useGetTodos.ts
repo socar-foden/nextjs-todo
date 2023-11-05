@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 const useGetTodos = () => {
   return useQuery({
     queryKey: ['getTodos'],
-    queryFn: () => getTodos({}),
+    queryFn: () => getTodos(),
   });
 };
 
