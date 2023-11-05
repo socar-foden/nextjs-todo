@@ -2,25 +2,28 @@
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FC } from 'react';
-import schema from './validation';
-import { TodoFormData } from './type';
+import schema from '../validation';
+import { TodoFormData } from '../type';
 import { Controller, useForm } from 'react-hook-form';
 import Button from '@/components/Button';
 import CheckBox from '@/components/CheckBox';
 import TextInput from '@/components/TextInput';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { addTodo } from '@/apis/todos';
+import useGetTodos from '@/queries/useGetTodos';
 
 interface Props {}
 
-const TodoForm: FC<Props> = () => {
+const AddTodoForm: FC<Props> = () => {
   // 데이터 패칭
   const { mutate, isPending } = useMutation({
     mutationFn: addTodo,
     onSuccess: () => {
+      queryGetTodos.refetch();
       reset();
     },
   });
+  const queryGetTodos = useGetTodos();
 
   // 폼
   const {
@@ -36,8 +39,7 @@ const TodoForm: FC<Props> = () => {
     },
   });
 
-  // userId는 하드코딩
-  const onSubmit = (data: TodoFormData) => mutate({ ...data, userId: 1 });
+  const onSubmit = (data: TodoFormData) => mutate(data);
 
   return (
     <form
@@ -75,4 +77,4 @@ const TodoForm: FC<Props> = () => {
   );
 };
 
-export default TodoForm;
+export default AddTodoForm;
