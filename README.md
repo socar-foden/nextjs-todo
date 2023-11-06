@@ -16,6 +16,11 @@
 
 > npm run dev
 
+- react-query
+- axios
+- react-hook-form
+- tailwind
+
 ### # ssr 관련
 
 #### 1. app router vs page router
