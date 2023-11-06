@@ -23,6 +23,13 @@
 
 ### # ssr 관련
 
+#### 0. 결과물
+
+- 브라우저 렌더링
+  ![브라우저 렌더링](/render.png)
+- ssr
+  ![ssr](/ssr.png)
+
 #### 1. app router vs page router
 
 - app router 사용
