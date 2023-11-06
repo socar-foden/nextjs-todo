@@ -53,5 +53,23 @@
 ### # 궁금한 점
 
 - 스타일도 ssr 시점에 적용되어야 하는지?
+
   - 봇이 긁어갈 정보만 있으면 될 것 같아서, 내 생각엔 필요 없을 것 같다.
-  - ex) 쿠팡, 네이버 등 기타 사이트 참고
+    - ex) 쿠팡, 네이버 등 기타 사이트 참고
+
+- axios 인스턴스 관련
+
+  - 서버측에서 실행되는 코드영역에서 axios 인스턴스 생성시, 여러 사용자간에 정보가 겹칠 문제가 발생할 수 있을까?
+
+    - ex) apis/index.ts
+
+      ```javascript
+      const instance = axios.create({
+        baseURL: 'http://127.0.0.1:3001/todos',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      ```
+
+    - 보통 별 내용이 없지만, interceptor나 기타 등등에서 문제가 발생할 수 있을지
